@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["es6"],
+    "alwaysStrict": true,
+    "strictNullChecks": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "files": ["src/server.ts"]
+}
