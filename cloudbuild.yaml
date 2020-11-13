@@ -1,0 +1,10 @@
+steps:
+- name: "gcr.io/cloud-builders/docker"
+  args: ["build", "-t", "gcr.io/fun-project-295504/airport-api:$COMMIT_SHA", '.']
+- name: "gcr.io/cloud-builders/docker"
+  args: ["push", "gcr.io/fun-project-295504/airport-api:$COMMIT_SHA"]
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'airport-api', '--image', 'gcr.io/fun-project-295504/airport-api:$COMMIT_SHA', '--region', 'us-central1', '--platform', 'managed']
+images:
+  - gcr.io/fun-project-295504/airport-api:$COMMIT_SHA

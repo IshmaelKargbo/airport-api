@@ -4,12 +4,10 @@
   "description": "",
   "main": "./dist/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:commonjs": "rimraf dist && tsc --target es5 --outDir dist --module commonjs --declaration",
-    "build:es": "rimraf es && tsc --target es6 --outDir es --module es6",
-    "build": "npm run build:commonjs && npm run build:es",
-    "dev": "ts-node src/server.ts",
-    "prepublishOnly": "npm run build"
+    "build": "npm run clean && tsc --outDir dist",
+    "clean": "rimraf dist/",
+    "start": "node .",
+    "dev": "ts-node src/server.ts"
   },
   "keywords": [],
   "author": "",
